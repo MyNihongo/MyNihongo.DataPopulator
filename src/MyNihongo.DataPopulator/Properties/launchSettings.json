@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MyNihongo.DataPopulator": {
+      "commandName": "Project",
+      "commandLineArgs": "-c \"Server=DAYTON033;Database=my_nihongo;Integrated Security=true;Encrypt=false\""
+    }
+  }
+}

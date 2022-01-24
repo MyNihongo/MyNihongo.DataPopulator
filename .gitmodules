@@ -1,0 +1,3 @@
+[submodule "ja-data"]
+	path = ja-data
+	url = https://github.com/MyNihongo/JapaneseData.git

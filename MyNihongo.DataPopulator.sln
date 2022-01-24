@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNihongo.DataPopulator", "src\MyNihongo.DataPopulator\MyNihongo.DataPopulator.csproj", "{0F7F0C8E-54B7-4C09-A3A0-28244BC5D40F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNihongo.DataPopulator.Database", "src\MyNihongo.DataPopulator.Database\MyNihongo.DataPopulator.Database.csproj", "{42761B7F-2BF7-4726-A342-806A29E971BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src-gen", "src-gen", "{AB566DDB-68E3-4346-BA41-93D88EA91854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNihongo.DataPopulator.SrcGen", "src-gen\MyNihongo.DataPopulator.SrcGen\MyNihongo.DataPopulator.SrcGen.csproj", "{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F7F0C8E-54B7-4C09-A3A0-28244BC5D40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F7F0C8E-54B7-4C09-A3A0-28244BC5D40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F7F0C8E-54B7-4C09-A3A0-28244BC5D40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F7F0C8E-54B7-4C09-A3A0-28244BC5D40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42761B7F-2BF7-4726-A342-806A29E971BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42761B7F-2BF7-4726-A342-806A29E971BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42761B7F-2BF7-4726-A342-806A29E971BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42761B7F-2BF7-4726-A342-806A29E971BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F12F3BE-6017-4F04-A1B3-7F3C2A13D0C7} = {AB566DDB-68E3-4346-BA41-93D88EA91854}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C84D49AE-50B7-459A-AC47-96F5F019A7C3}
+	EndGlobalSection
+EndGlobal
