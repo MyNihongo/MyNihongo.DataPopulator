@@ -1,11 +1,17 @@
-﻿using MyNihongo.DataPopulator.Database.Models.Kanji;
+﻿using System.Text;
+using Microsoft.Extensions.ObjectPool;
+using MyNihongo.DataPopulator.Database.Models.Kanji;
 using MyNihongo.DataPopulator.Models.Kanji;
 using MyNihongo.DataPopulator.Utils.Extensions;
+using MyNihongo.KanaConverter;
 
 namespace MyNihongo.DataPopulator.Services;
 
 internal sealed class KanjiPopulator : IKanjiPopulator
 {
+	private static readonly ObjectPool<StringBuilder> StringBuilderPool = new DefaultObjectPoolProvider()
+		.CreateStringBuilderPool();
+
 	private readonly Args _args;
 	private readonly IClock _clock;
 	private readonly IKanjiProvider _kanjiProvider;
@@ -75,18 +81,19 @@ internal sealed class KanjiPopulator : IKanjiPopulator
 			if (archaic.Contains(readings[i]))
 				continue;
 
-			var (main, secondary) = SplitText(readings[i]);
+			var (main, secondary) = SplitText(readings[i], out var kanaReading);
 			yield return new KanjiReadingDatabaseRecord
 			{
 				KanjiId = kanjiId,
 				MainText = main,
 				SecondaryText = secondary,
 				SortingOrder = j++,
-				ReadingType = type
+				ReadingType = type,
+				Romaji = kanaReading.ToRomaji(StringBuilderPool.Get)
 			};
 		}
 
-		static (string, string) SplitText(string reading)
+		static (string, string) SplitText(string reading, out string kanaReading)
 		{
 			string main = reading, secondary = string.Empty;
 			var index = reading.IndexOf('|');
@@ -95,6 +102,12 @@ internal sealed class KanjiPopulator : IKanjiPopulator
 			{
 				main = reading[..index];
 				secondary = reading[(index + 1)..];
+
+				kanaReading = main + secondary;
+			}
+			else
+			{
+				kanaReading = reading;
 			}
 
 			return (main, secondary);
