@@ -24,8 +24,12 @@ internal static class SourceGenerator
 		// Create list fields
 		foreach (var prop in props)
 		{
+			var structure = prop.NeedsHashSet
+				? "HashSet"
+				: "List";
+
 			stringBuilder
-				.AppendFormat("\tprivate readonly List<{0}> {1} = new();", prop.EntityType, prop.FieldName)
+				.AppendFormat("\tprivate readonly {0}<{1}> {2} = new();", structure, prop.EntityType, prop.FieldName)
 				.AppendLine();
 		}
 
@@ -40,14 +44,28 @@ internal static class SourceGenerator
 			.AppendLine();
 
 		// Add methods
-		foreach (var (name, fieldName, entityType) in props)
+		foreach (var prop in props)
 		{
 			const string itemVar = "item",
 				itemsVar = "items";
 
 			stringBuilder
-				.AppendFormat("\tpublic void Add{0}({1} {2}) => {3}.Add({2});", name, entityType, itemVar, fieldName).AppendLine()
-				.AppendFormat("\tpublic void Add{0}(IEnumerable<{1}> {2}) => {3}.AddRange({2});", name, entityType, itemsVar, fieldName).AppendLine()
+				.AppendFormat("\tpublic void Add{0}({1} {2}) => {3}.Add({2});", prop.Name, prop.EntityType, itemVar, prop.FieldName).AppendLine()
+				.AppendFormat("\tpublic void Add{0}(IEnumerable<{1}> {2})", prop.Name, prop.EntityType, itemsVar);
+
+			if (prop.NeedsHashSet)
+			{
+				stringBuilder
+					.AppendFormat(" {{ foreach (var i in {0}) {1}.Add(i); }}", itemsVar, prop.FieldName);
+			}
+			else
+			{
+				stringBuilder
+					.AppendFormat(" => {0}.AddRange({1});", prop.FieldName, itemsVar);
+			}
+
+			stringBuilder
+				.AppendLine()
 				.AppendLine();
 		}
 

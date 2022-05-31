@@ -1,4 +1,6 @@
-﻿namespace MyNihongo.DataPopulator.Services;
+﻿using MyNihongo.DataPopulator.Utils;
+
+namespace MyNihongo.DataPopulator.Services.Core;
 
 internal sealed class FileSystemService : IFileSystemService
 {
@@ -15,6 +17,18 @@ internal sealed class FileSystemService : IFileSystemService
 		return Path.Combine(_resourceDirectory, directory);
 	}
 
+	public async ValueTask<string> GetContentAsync(string path)
+	{
+		if (!File.Exists(path))
+			return string.Empty;
+
+		await using var stream = FileUtils.AsyncStream(path);
+		using var reader = new StreamReader(stream);
+
+		return await reader.ReadToEndAsync()
+			.ConfigureAwait(false);
+	}
+
 	private static string GetResourceDir()
 	{
 		var currentDir = AppContext.BaseDirectory;
@@ -29,7 +43,7 @@ internal sealed class FileSystemService : IFileSystemService
 			var slice = currentDirSpan[(iStart + 1)..iEnd];
 			if (slice.SequenceEqual(srcDirSpan))
 				return currentDir[..(iStart + 1)] + "ja-data";
-	
+
 			iEnd = iStart;
 		}
 

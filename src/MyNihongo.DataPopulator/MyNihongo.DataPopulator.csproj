@@ -10,11 +10,12 @@
 	<ItemGroup>
 		<PackageReference Include="CommandLineParser" Version="2.8.0" />
 		<PackageReference Include="Goblinfactory.ProgressBar" Version="1.0.0" />
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="4.0.1" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-		<PackageReference Include="Microsoft.Extensions.ObjectPool" Version="6.0.1" />
-		<PackageReference Include="MyNihongo.KanaConverter" Version="1.0.0" />
-		<PackageReference Include="NodaTime" Version="3.0.9" />
+		<PackageReference Include="Microsoft.Extensions.ObjectPool" Version="6.0.3" />
+		<PackageReference Include="MyNihongo.KanaConverter" Version="1.0.1" />
+		<PackageReference Include="MyNihongo.KanaDetector" Version="1.0.1.1" />
+		<PackageReference Include="NodaTime" Version="3.0.10" />
 	</ItemGroup>
 
 	<ItemGroup>

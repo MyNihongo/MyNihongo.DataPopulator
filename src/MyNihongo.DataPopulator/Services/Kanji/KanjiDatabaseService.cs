@@ -1,7 +1,7 @@
 ﻿using LinqToDB;
 using MyNihongo.DataPopulator.Databases;
 
-namespace MyNihongo.DataPopulator.Services;
+namespace MyNihongo.DataPopulator.Services.Kanji;
 
 internal sealed class KanjiDatabaseService : IKanjiDatabaseService
 {
@@ -14,9 +14,9 @@ internal sealed class KanjiDatabaseService : IKanjiDatabaseService
 
 	public async Task<IReadOnlyDictionary<short, int>> GetHashCodesAsync(CancellationToken ct = default)
 	{
-		await using var db = new KanjiDatabase(_args.ConnectionString);
+		await using var connection = new KanjiDatabase(_args.ConnectionString);
 
-		return await db.MasterData
+		return await connection.MasterData
 			.Select(static x => new
 			{
 				x.KanjiId,

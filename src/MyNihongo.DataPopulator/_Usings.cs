@@ -1,4 +1,12 @@
-﻿global using System.Runtime.CompilerServices;
+﻿global using System.Collections;
+global using System.Runtime.CompilerServices;
+global using System.Text;
+global using System.Text.Json;
 global using System.Text.Json.Serialization;
+global using Microsoft.Extensions.ObjectPool;
 global using MyNihongo.DataPopulator.Database.Enums;
+global using MyNihongo.DataPopulator.Services.Core;
+global using MyNihongo.DataPopulator.Utils.Extensions;
+global using MyNihongo.KanaConverter;
+global using MyNihongo.KanaDetector.Extensions;
 global using NodaTime;

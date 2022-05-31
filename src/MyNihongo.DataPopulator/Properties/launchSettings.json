@@ -1,8 +1,8 @@
 {
-  "profiles": {
-    "MyNihongo.DataPopulator": {
-      "commandName": "Project",
-      "commandLineArgs": "-c \"Server=DAYTON033;Database=my_nihongo;Integrated Security=true;Encrypt=false\""
-    }
-  }
+	"profiles": {
+		"MyNihongo.DataPopulator": {
+			"commandName": "Project",
+			"commandLineArgs": "-c \"Server=DAYTON033\\SQLEXPRESS;Database=mynihongo;Integrated Security=true;Encrypt=false\""
+		}
+	}
 }

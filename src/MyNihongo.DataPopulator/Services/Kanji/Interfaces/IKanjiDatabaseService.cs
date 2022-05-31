@@ -1,4 +1,4 @@
-﻿namespace MyNihongo.DataPopulator.Services;
+﻿namespace MyNihongo.DataPopulator.Services.Kanji;
 
 public interface IKanjiDatabaseService
 {

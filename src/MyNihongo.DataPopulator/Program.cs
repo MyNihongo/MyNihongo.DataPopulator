@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using MyNihongo.DataPopulator;
-using MyNihongo.DataPopulator.Services;
+using MyNihongo.DataPopulator.Services.Grammar;
 using MyNihongo.DataPopulator.Utils.ServiceRegistration;
 
 await Parser.Default.ParseArguments<Args>(args)
@@ -12,6 +12,6 @@ await Parser.Default.ParseArguments<Args>(args)
 			.AddDataPopulator()
 			.BuildServiceProvider();
 
-		await services.GetRequiredService<IKanjiPopulator>()
-			.PopulateKanjiAsync();
+		await services.GetRequiredService<IGrammarPopulator>()
+			.PopulateRulesAsync();
 	});

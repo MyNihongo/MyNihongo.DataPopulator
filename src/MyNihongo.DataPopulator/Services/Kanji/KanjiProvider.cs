@@ -1,7 +1,6 @@
 ﻿using MyNihongo.DataPopulator.Models.Kanji;
-using MyNihongo.DataPopulator.Utils.Extensions;
 
-namespace MyNihongo.DataPopulator.Services;
+namespace MyNihongo.DataPopulator.Services.Kanji;
 
 internal sealed class KanjiProvider : IKanjiProvider
 {

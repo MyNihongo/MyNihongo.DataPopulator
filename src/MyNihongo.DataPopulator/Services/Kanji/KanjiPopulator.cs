@@ -1,11 +1,7 @@
-﻿using System.Text;
-using Microsoft.Extensions.ObjectPool;
-using MyNihongo.DataPopulator.Database.Models.Kanji;
+﻿using MyNihongo.DataPopulator.Database.Models.Kanji;
 using MyNihongo.DataPopulator.Models.Kanji;
-using MyNihongo.DataPopulator.Utils.Extensions;
-using MyNihongo.KanaConverter;
 
-namespace MyNihongo.DataPopulator.Services;
+namespace MyNihongo.DataPopulator.Services.Kanji;
 
 internal sealed class KanjiPopulator : IKanjiPopulator
 {

@@ -1,6 +1,4 @@
-﻿using MyNihongo.DataPopulator.Database.Resources;
-
-namespace MyNihongo.DataPopulator.Database.Models.Kanji;
+﻿namespace MyNihongo.DataPopulator.Database.Models.Kanji;
 
 [Table("tblKanjiReading")]
 public sealed record KanjiReadingDatabaseRecord

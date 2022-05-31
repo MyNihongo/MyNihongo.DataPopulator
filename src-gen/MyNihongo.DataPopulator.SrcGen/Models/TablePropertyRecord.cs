@@ -7,4 +7,13 @@ internal sealed record TablePropertyRecord(string Name, string FieldName, INamed
 	public string FieldName { get; } = FieldName;
 
 	public INamedTypeSymbol EntityType { get; } = EntityType;
+
+	public bool NeedsHashSet { get; } = Name.IndexOf("romaji", StringComparison.InvariantCultureIgnoreCase) != -1;
+
+	public void Deconstruct(out string name, out string fieldName, out INamedTypeSymbol entityType)
+	{
+		name = Name;
+		fieldName = FieldName;
+		entityType = EntityType;
+	}
 }
